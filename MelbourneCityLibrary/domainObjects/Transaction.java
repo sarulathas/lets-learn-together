@@ -1,22 +1,19 @@
+package domainObjects;
+
 import java.util.Date;
-import java.util.UUID;
 
-public class Card {
+public class Transaction {
 
-    private UUID userId;
+    private String userId;
     private Date borrowedDate;
     private Date dueDate;
     private boolean isReturned;
 
-    public Card(UUID userId, Date borrowedDate, Date dueDate) {
+    public Transaction(String userId, Date borrowedDate, Date dueDate) {
         this.userId = userId;
         this.borrowedDate = borrowedDate;
         this.dueDate = dueDate;
         this.isReturned = false;
-    }
-
-    public UUID getUserId() {
-        return userId;
     }
 
     public Date getBorrowedDate() {

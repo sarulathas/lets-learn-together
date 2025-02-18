@@ -9,8 +9,15 @@ Done so far:
 
 To be done:
 
+- File structure refactor
 - Use a better ID value for books and users
 - Create Operations class for all operations
-- Refactor book display methods
+- Refactor the "display" methods
 - Read books from Datasource(file)
 - Read Users from Datasource(file)
+- Add tests
+- Handle exceptions
+
+- Naming
+- Separation of concern
+- Domain objects

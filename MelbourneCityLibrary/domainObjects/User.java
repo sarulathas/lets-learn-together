@@ -1,15 +1,15 @@
-import java.util.UUID;
+package domainObjects;
 
 public class User {
-    private UUID userId;
+    private String userId;
     private String userName;
 
-    public User(String userName) {
-        this.userId = UUID.randomUUID();
+    public User(String userId, String userName) {
+        this.userId = userId;
         this.userName = userName;
     }
 
-    public UUID getUserId() {
+    public String getUserId() {
         return userId;
     }
 

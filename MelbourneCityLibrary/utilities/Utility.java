@@ -1,16 +1,17 @@
 package utilities;
 
 import java.util.Collection;
+import java.util.List;
 
-import domainObjects.Book;
+import abstractions.Rentable;
 import domainObjects.User;
 
 public class Utility {
 
-    public static void printBooks(Collection<Book> books) {
+    public static void printBooks(List<Rentable> collection) {
         System.err.println("--------------------------------------\n");
-        for (Book book : books) {
-            System.out.println(book);
+        for (Rentable item : collection) {
+            System.out.println(item);
         }
         System.err.println("--------------------------------------\n");
     }
@@ -23,7 +24,7 @@ public class Utility {
         System.err.println("--------------------------------------\n");
     }
 
-    public enum BookStatus {
+    public enum RentStatus {
         Available,
         Borrowed,
         Overdue
@@ -32,5 +33,10 @@ public class Utility {
     public enum OperationStatus {
         SUCCESS,
         FAILURE
+    }
+
+    public enum ResourceType {
+        Book,
+        DVD
     }
 }

@@ -15,7 +15,7 @@ public class LibraryServiceTest {
     public void testAddNewBook() {
         Book newBook = new Book("1", "New Book", "Author Name");
 
-        service.addNewBook(newBook);
+        service.addNewLibraryResource(newBook);
 
         Assertions.assertEquals(service.getBooks().get(newBook.getBookId()), newBook);
     }
@@ -33,10 +33,10 @@ public class LibraryServiceTest {
     public void testBorrowBook() {
         Book book = new Book("1", "New Book", "Author Name");
         User user = new User("1", "User Name");
-        service.addNewBook(book);
+        service.addNewLibraryResource(book);
         service.addNewUser(user);
 
-        service.borrowBook("1", "1");
+        service.borrowResource("1", "1");
 
         Assertions.assertEquals(service.getBooks().get(book.getBookId()).isBookAvailable(), false);
     }
@@ -45,11 +45,11 @@ public class LibraryServiceTest {
     public void testReturnBook() {
         Book book = new Book("1", "New Book", "Author Name");
         User user = new User("1", "User Name");
-        service.addNewBook(book);
+        service.addNewLibraryResource(book);
         service.addNewUser(user);
-        service.borrowBook("1", "1");
+        service.borrowResource("1", "1");
 
-        service.returnBook("1");
+        service.returnResource("1");
 
         Assertions.assertEquals(service.getBooks().get(book.getBookId()).isBookAvailable(), true);
     }

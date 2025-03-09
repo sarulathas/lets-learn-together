@@ -6,23 +6,24 @@ Repository for Let's Learn Together Work
 
 Melbourne City Library
 
+- abstractions
+  - Rentable.java
 - domainObjects
   - Book.java
   - Transaction.java
   - User.java
+  - DVD.java
+  - Library.java
 - services
   - LibraryService.java
+  - ResourceService.java
 - tests
   - LibraryServiceTest.java
 - userInterface
-  - UserOperatons.java
+  - UserOperations.java
 - utilities
   - Utility.java
 - Application.java
-
-## Next task:
-
-- Users to be able borrow movie DVDs
 
 ## To be done:
 
@@ -30,3 +31,4 @@ Melbourne City Library
 - Read books from Datasource(file)
 - Read Users from Datasource(file)
 - Handle exceptions
+- Fix tests and additional tests for new classes

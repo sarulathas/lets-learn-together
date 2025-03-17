@@ -3,12 +3,10 @@ package services;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import abstractions.Rentable;
-import domainObjects.Book;
 import domainObjects.User;
+import utilities.Utility.OperationStatus;
 import utilities.Utility.ResourceType;
 
 public class ResourcesService {
@@ -34,9 +32,14 @@ public class ResourcesService {
         return this.users;
     }
 
-    public void addNewLibraryResource(String id, Rentable item) {
+    public OperationStatus addNewLibraryResource(String id, Rentable item) {
+        if (this.collection.containsKey(id)) {
+            System.out.println("Id already exists!");
+            return OperationStatus.FAILURE;
+        }
         this.collection.put(id, item);
         System.out.println(item);
+        return OperationStatus.SUCCESS;
     }
 
     public void addNewUser(User newUser) {

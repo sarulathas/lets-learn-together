@@ -10,6 +10,7 @@ import domainObjects.Book;
 import domainObjects.DVD;
 import domainObjects.User;
 import services.ResourcesService;
+import utilities.Utility.OperationStatus;
 import utilities.Utility.ResourceType;
 
 public class ResourcesServiceTest {
@@ -20,8 +21,9 @@ public class ResourcesServiceTest {
     public void testAddNewBook() {
         Book newBook = new Book("1", "New Book", "Author Name");
 
-        resourcesService.addNewLibraryResource("1", newBook);
+        OperationStatus status = resourcesService.addNewLibraryResource("1", newBook);
 
+        Assertions.assertEquals(OperationStatus.SUCCESS, status);
         Assertions.assertEquals(resourcesService.getResourceById("1"), newBook);
     }
 
@@ -38,8 +40,9 @@ public class ResourcesServiceTest {
     public void testAddNewDVD() {
         DVD newDVD = new DVD("dvd-1", "New DVD");
 
-        resourcesService.addNewLibraryResource("dvd-1", newDVD);
+        OperationStatus status = resourcesService.addNewLibraryResource("dvd-1", newDVD);
 
+        Assertions.assertEquals(OperationStatus.SUCCESS, status);
         Assertions.assertEquals(newDVD, resourcesService.getResourceById("dvd-1"));
     }
 

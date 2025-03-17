@@ -1,18 +1,16 @@
 package domainObjects;
 
-import java.util.Date;
-
 import abstractions.Rentable;
 
 public class Transaction {
 
     private Rentable item;
     private String userId;
-    private Date borrowedDate;
-    private Date dueDate;
+    private String borrowedDate;
+    private String dueDate;
     private boolean isReturned;
 
-    public Transaction(Rentable item, String userId, Date borrowedDate, Date dueDate) {
+    public Transaction(Rentable item, String userId, String borrowedDate, String dueDate) {
         this.item = item;
         this.userId = userId;
         this.borrowedDate = borrowedDate;
@@ -20,16 +18,28 @@ public class Transaction {
         this.isReturned = false;
     }
 
-    public Date getBorrowedDate() {
+    public String getBorrowedDate() {
         return borrowedDate;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
     public void setIsReturned(boolean value) {
         this.isReturned = value;
+    }
+
+    public Rentable getItem() {
+        return item;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public boolean isReturned() {
+        return isReturned;
     }
 
 }

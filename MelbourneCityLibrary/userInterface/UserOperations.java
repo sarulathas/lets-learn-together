@@ -3,14 +3,12 @@ package userInterface;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import abstractions.Rentable;
 import domainObjects.Book;
 import domainObjects.DVD;
-import domainObjects.Library;
 import domainObjects.User;
 import services.LibraryService;
 import services.ResourcesService;

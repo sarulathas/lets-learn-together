@@ -1,5 +1,6 @@
 package services;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,6 +9,8 @@ import domainObjects.Transaction;
 import utilities.Utility.OperationStatus;
 
 public class LibraryService {
+    
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public LibraryService() {
     }
@@ -17,8 +20,8 @@ public class LibraryService {
             System.out.println("Requested item is not available"); // change message
             return OperationStatus.FAILURE;
         }
-        Date borrowedDate = new Date();
-        Date dueDate = computeDueDate();
+        String borrowedDate = dateFormat.format(new Date());
+        String dueDate = dateFormat.format(computeDueDate());
         Transaction newTrasaction = new Transaction(item, userId, borrowedDate, dueDate);
         item.addNewTransaction(newTrasaction);
         item.borrowItem();

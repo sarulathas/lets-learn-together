@@ -14,7 +14,7 @@ public class Book implements Rentable {
     private String author;
     private RentStatus bookStatus;
     private List<Transaction> transactions;
-    private ResourceType type;
+    private ResourceType type; // look to remove this
 
     public Book(String id, String title, String author) {
         this.bookId = id;
@@ -27,10 +27,6 @@ public class Book implements Rentable {
 
     public String getBookId() {
         return this.bookId;
-    }
-
-    public void setBookStatus(RentStatus bookStatus) {
-        this.bookStatus = bookStatus;
     }
 
     public Transaction getLatestTransaction() {

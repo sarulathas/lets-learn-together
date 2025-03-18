@@ -1,7 +1,7 @@
 
 import java.io.IOException;
 
-import userInterface.Operations;
+import userInterfaces.Operations;
 
 public class Application {
 

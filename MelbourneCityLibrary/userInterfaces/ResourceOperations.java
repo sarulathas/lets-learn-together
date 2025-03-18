@@ -1,4 +1,4 @@
-package userInterface;
+package userInterfaces;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,7 @@ public class ResourceOperations {
     private ResourcesService resourcesService;
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+    // inject abstraction instead of concrete classes
     public ResourceOperations(ResourcesService resourcesService) {
         this.resourcesService = resourcesService;
     }

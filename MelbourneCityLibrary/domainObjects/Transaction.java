@@ -6,7 +6,7 @@ public class Transaction {
 
     private Rentable item;
     private String userId;
-    private String borrowedDate;
+    private String borrowedDate; // keep it as DateTime
     private String dueDate;
     private boolean isReturned;
 

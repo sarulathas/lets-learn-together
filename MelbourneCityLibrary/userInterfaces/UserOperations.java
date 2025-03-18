@@ -1,4 +1,4 @@
-package userInterface;
+package userInterfaces;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +19,7 @@ public class UserOperations {
     public UserOperations(DisplayUtility displayUtility, ResourcesService resourcesService) {
         this.displayUtility = displayUtility;
         this.resourcesService = resourcesService;
+        // inject abstraction instead of concrete classes
         this.libraryServices = new LibraryService();
     }
 

@@ -33,3 +33,14 @@ Melbourne City Library
 - Read books from Datasource(file)
 - Read Users from Datasource(file)
 - Handle exceptions
+
+
+Under the userInterface, have a separate folder for user response to define the structure.
+use a separate object at service and interface levels
+
+
+The services need their own interfaces. 
+
+Multiple copies of a single Resource
+
+id - auto generated - uuid

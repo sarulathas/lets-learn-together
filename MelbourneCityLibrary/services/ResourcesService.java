@@ -11,8 +11,9 @@ import utilities.Utility.ResourceType;
 
 public class ResourcesService {
 
-    private Map<String, Rentable> collection;
-    private Map<String, User> users;
+    // can be list of rentable collection instead of a map
+    private Map<String, Rentable> collection; // should it belong to the domain or the use case?
+    private Map<String, User> users; // can be maintained as a list
 
     public ResourcesService() {
         this.collection = new HashMap<String, Rentable>();
@@ -32,8 +33,11 @@ public class ResourcesService {
         return this.users;
     }
 
+    // auto-generate ids and use items in list
+    // handle duplicate name
     public OperationStatus addNewLibraryResource(String id, Rentable item) {
         if (this.collection.containsKey(id)) {
+            // throw exception
             System.out.println("Id already exists!");
             return OperationStatus.FAILURE;
         }
@@ -50,6 +54,7 @@ public class ResourcesService {
         return this.collection.values().stream().toList();
     }
 
+    // use the class type instead of resource type
     public List<Rentable> getCollectionByType(ResourceType resourceType) {
         return this.collection.values().stream().filter(item -> item.getItemType().equals(resourceType)).toList();
     }

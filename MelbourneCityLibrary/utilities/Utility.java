@@ -24,12 +24,15 @@ public class Utility {
         System.err.println("--------------------------------------\n");
     }
 
+    // can be within domainObjects
     public enum RentStatus {
         Available,
         Borrowed,
         Overdue
     }
 
+    // should be within service.should not be leaked. 
+    // output needs to be transformed and handled in user interface.
     public enum OperationStatus {
         SUCCESS,
         FAILURE

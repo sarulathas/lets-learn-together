@@ -9,7 +9,7 @@ import abstractions.Rentable;
 import domainObjects.Book;
 import domainObjects.DVD;
 import domainObjects.User;
-import services.ResourcesService;
+import services.implementation.ResourcesService;
 import utilities.Utility.OperationStatus;
 import utilities.Utility.ResourceType;
 

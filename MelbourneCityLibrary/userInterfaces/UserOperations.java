@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import services.LibraryService;
-import services.ResourcesService;
+import exceptions.InvalidItemException;
+import services.implementation.LibraryService;
+import services.implementation.ResourcesService;
 import utilities.Utility.OperationStatus;
 import utilities.Utility.ResourceType;
 
@@ -39,12 +40,18 @@ public class UserOperations {
         System.out.print("Enter User ID: ");
         String userId = br.readLine();
 
-        OperationStatus status = libraryServices.borrowResource(resourcesService.getResourceById(bookId), userId);
-        if (status.equals(OperationStatus.FAILURE)) {
+        OperationStatus status;
+        try {
+            status = libraryServices.borrowResource(resourcesService.getResourceById(bookId), userId);
+            if (status.equals(OperationStatus.FAILURE)) {
+                System.out.println("Unable to borrow " + type + "!");
+                return;
+            }
+            System.out.println(type + " borrowed successfully!\n");
+        } catch (InvalidItemException e) {
             System.out.println("Unable to borrow " + type + "!");
-            return;
+            e.printStackTrace();
         }
-        System.out.println(type + " borrowed successfully!\n");
     }
 
     public void returnResourceByType(ResourceType type) throws IOException {
@@ -59,12 +66,18 @@ public class UserOperations {
         System.out.print("Enter " + type + " ID: ");
         String bookId = br.readLine();
 
-        OperationStatus status = libraryServices.returnResource(resourcesService.getResourceById(bookId));
-        if (status.equals(OperationStatus.FAILURE)) {
+        OperationStatus status;
+        try {
+            status = libraryServices.returnResource(resourcesService.getResourceById(bookId));
+            if (status.equals(OperationStatus.FAILURE)) {
+                System.out.println("Failed to return " + type + "!");
+                return;
+            }
+            System.out.println(type + " returned successfully!\n");
+        } catch (InvalidItemException e) {
             System.out.println("Failed to return " + type + "!");
-            return;
+            e.printStackTrace();
         }
-        System.out.println(type + " returned successfully!\n");
     }
 
 }

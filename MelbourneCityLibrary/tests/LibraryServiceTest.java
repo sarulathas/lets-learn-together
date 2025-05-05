@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 import domainObjects.Book;
-import services.LibraryService;
+import services.implementation.LibraryService;
 
 public class LibraryServiceTest {
 

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import abstractions.Rentable;
-import services.ResourcesService;
+import services.implementation.ResourcesService;
 import utilities.Utility;
 import utilities.Utility.ResourceType;
 

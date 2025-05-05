@@ -3,11 +3,12 @@ package userInterfaces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.UUID;
 
 import domainObjects.Book;
 import domainObjects.DVD;
 import domainObjects.User;
-import services.ResourcesService;
+import services.implementation.ResourcesService;
 import utilities.Utility.OperationStatus;
 import utilities.Utility.ResourceType;
 
@@ -22,8 +23,7 @@ public class ResourceOperations {
     }
 
     public void addNewLibraryItem(ResourceType type) throws IOException {
-        System.out.print("Enter " + type + " ID: ");
-        String id = br.readLine();
+        UUID id = UUID.randomUUID();
         System.out.print("Enter " + type + " Name: ");
         String title = br.readLine();
 
@@ -32,12 +32,12 @@ public class ResourceOperations {
         if (type.equals(ResourceType.Book)) {
             System.out.print("Enter Author Name: ");
             String author = br.readLine();
-            status = resourcesService.addNewLibraryResource(id, new Book(id, title, author));
+            status = resourcesService.addNewLibraryResource(new Book(id, title, author));
         } else {
-            status = resourcesService.addNewLibraryResource(id, new DVD(id, title));
+            status = resourcesService.addNewLibraryResource(new DVD(id, title));
         }
 
-        if(status.equals(OperationStatus.SUCCESS)) {
+        if (status.equals(OperationStatus.SUCCESS)) {
             System.out.println(type + " added successfully!\n");
         } else {
             System.out.println("Failed to add new " + type + "\n");

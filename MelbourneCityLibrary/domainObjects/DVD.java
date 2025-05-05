@@ -2,6 +2,7 @@ package domainObjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import abstractions.Rentable;
 import utilities.Utility.RentStatus;
@@ -9,13 +10,13 @@ import utilities.Utility.ResourceType;
 
 public class DVD implements Rentable {
 
-    private String id;
+    private UUID id;
     private String name;
     private ResourceType type;
     private RentStatus status;
     private List<Transaction> transactions;
 
-    public DVD(String id, String name) {
+    public DVD(UUID id, String name) {
         this.id = id;
         this.name = name;
         this.type = ResourceType.DVD;
@@ -23,7 +24,7 @@ public class DVD implements Rentable {
         this.transactions = new ArrayList<Transaction>();
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 

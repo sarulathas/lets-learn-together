@@ -2,6 +2,7 @@ package domainObjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import abstractions.Rentable;
 import utilities.Utility.RentStatus;
@@ -9,14 +10,14 @@ import utilities.Utility.ResourceType;
 
 public class Book implements Rentable {
 
-    private String bookId;
+    private UUID bookId;
     private String title;
     private String author;
     private RentStatus bookStatus;
     private List<Transaction> transactions;
     private ResourceType type; // look to remove this
 
-    public Book(String id, String title, String author) {
+    public Book(UUID id, String title, String author) {
         this.bookId = id;
         this.title = title;
         this.author = author;
@@ -25,7 +26,7 @@ public class Book implements Rentable {
         this.type = ResourceType.Book;
     }
 
-    public String getBookId() {
+    public UUID getId() {
         return this.bookId;
     }
 

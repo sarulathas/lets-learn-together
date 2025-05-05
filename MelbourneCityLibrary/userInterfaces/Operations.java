@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import services.ResourcesService;
+import services.implementation.ResourcesService;
 import utilities.Utility.ResourceType;
 
 public class Operations {
